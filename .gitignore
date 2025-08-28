@@ -1,17 +1,18 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# =====================
+# Node / React
+# =====================
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+# Testing
 /coverage
 
-# production
+# Production
 /build
+/dist
 
-# misc
+# Misc
 .DS_Store
 .env.local
 .env.development.local
@@ -21,3 +22,35 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# =====================
+# .NET / C# / Visual Studio
+# =====================
+# Build folders
+/bin
+/obj
+/out
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.vs/
+*.vscode/
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# =====================
+# Others
+# =====================
+*.log
+*.lock.json
