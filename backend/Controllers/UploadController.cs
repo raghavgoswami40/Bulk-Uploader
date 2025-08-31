@@ -45,7 +45,7 @@ namespace BulkUploaderApp.Controllers
             foreach (var row in worksheet.RowsUsed()) // Efficient for large files
             {
                 var rowData = row.CellsUsed()
-                     .Select(c => (object)c.Value) // cast to object
+                     .Select(c => (object)c.Value.ToString()) // convert to plain string
                      .ToList();
                 data.Add(rowData);
             }

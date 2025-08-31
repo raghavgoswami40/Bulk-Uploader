@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useNotification } from "../context/NotificationContext";
 
 const ActualsUpload = () => {
   const [file, setFileData] = useState(null);
@@ -10,6 +11,7 @@ const ActualsUpload = () => {
   const [fileName, setFileName] = useState("");
   const [columns, setColumns] = useState(null);
   const navigate = useNavigate();
+  const { showSuccess, showError } = useNotification();
 
   // Change this to match your ASP.NET Core backend
   const API_BASE = "http://localhost:5236/api";  
@@ -36,23 +38,22 @@ const ActualsUpload = () => {
       
     } catch (error) {
       console.error("Upload error:", error);
-      alert("Failed to upload file. Check console for details.");
+      showError("Failed to upload file. Check console for details.");
     }
   };
 
-  // POST preview data to backend / InEight API
-  const handlePost = async () => {
-    try {
-      const res = await axios.post(`${API_BASE}/Upload/post-to-ineight`, preview, {
-        headers: { "Content-Type": "application/json" }
-      });
-      console.log(res.data);
-      alert(`Status: ${res.data.status}`);
-    } catch (error) {
-      console.error("POST error:", error);
-      alert("Failed to post data to InEight. Check console for details.");
-    }
-  };
+  // // POST preview data to backend / InEight API
+  // const handlePost = async () => {
+  //   try {
+  //     const res = await axios.post(`${API_BASE}/Upload/post-to-ineight`, preview, {
+  //       headers: { "Content-Type": "application/json" }
+  //     });
+  //     alert(`Status: ${res.data.status}`);
+  //   } catch (error) {
+  //     console.error("POST error:", error);
+  //     alert("Failed to post data to InEight. Check console for details.");
+  //   }
+  // };
 
   // Cancel button: reset everything
   const handleCancel = () => {
@@ -72,7 +73,7 @@ const ActualsUpload = () => {
     if (sourceSystem === "custom") {
       navigate("/ActualsCustomMapping", { state: { columns, preview } }); 
     } else {
-      alert("Proceeding with standard mapping...");
+      showSuccess("Proceeding with standard mapping...");
     }
   };
 

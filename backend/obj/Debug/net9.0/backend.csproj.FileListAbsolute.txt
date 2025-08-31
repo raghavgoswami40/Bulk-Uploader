@@ -55,3 +55,4 @@
 /Users/raghav/BulkUploaderApp/backend/obj/Debug/net9.0/backend.pdb
 /Users/raghav/BulkUploaderApp/backend/obj/Debug/net9.0/backend.genruntimeconfig.cache
 /Users/raghav/BulkUploaderApp/backend/obj/Debug/net9.0/ref/backend.dll
+/Users/raghav/BulkUploaderApp/backend/obj/Debug/net9.0/backend.sourcelink.json
